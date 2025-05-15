@@ -1,0 +1,84 @@
+sudo nmap -sS -sV -A ctf16.root-me.org 
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-05-15 18:06 CEST
+Nmap scan report for ctf16.root-me.org (163.172.195.64)
+Host is up (0.017s latency).
+Not shown: 990 closed tcp ports (reset)
+PORT     STATE SERVICE     VERSION
+22/tcp   open  ssh         OpenSSH 4.7 (protocol 2.0)
+| ssh-hostkey: 
+|   1024 05:c3:aa:15:2b:57:c7:f4:2b:d3:41:1c:74:76:cd:3d (DSA)
+|_  2048 43:fa:3c:08:ab:e7:8b:39:c3:d6:f3:a4:54:19:fe:a6 (RSA)
+25/tcp   open  smtp        Sendmail 8.14.1/8.14.1
+| smtp-commands: localhost.localdomain Hello [163.5.3.111], pleased to meet you, ENHANCEDSTATUSCODES, PIPELINING, 8BITMIME, SIZE, DSN, ETRN, AUTH DIGEST-MD5 CRAM-MD5, DELIVERBY, HELP
+|_ 2.0.0 This is sendmail 2.0.0 Topics: 2.0.0 HELO EHLO MAIL RCPT DATA 2.0.0 RSET NOOP QUIT HELP VRFY 2.0.0 EXPN VERB ETRN DSN AUTH 2.0.0 STARTTLS 2.0.0 For more info use "HELP <topic>". 2.0.0 To report bugs in the implementation see 2.0.0 http://www.sendmail.org/email-addresses.html 2.0.0 For local information send email to Postmaster at your site. 2.0.0 End of HELP info
+80/tcp   open  http        Apache httpd 2.2.6 ((Fedora))
+|_http-server-header: Apache/2.2.6 (Fedora)
+|_http-title: Phake Organization
+110/tcp  open  pop3        ipop3d 2006k.101
+|_pop3-capabilities: TOP LOGIN-DELAY(180) STLS UIDL USER
+|_ssl-date: 2025-05-15T16:08:44+00:00; -2s from scanner time.
+111/tcp  open  rpcbind     2-4 (RPC #100000)
+| rpcinfo: 
+|   program version    port/proto  service
+|   100000  2,3,4        111/tcp   rpcbind
+|   100000  2,3,4        111/udp   rpcbind
+|   100024  1          32768/udp   status
+|_  100024  1          58539/tcp   status
+139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: MYGROUP)
+143/tcp  open  imap        University of Washington IMAP imapd 2006k.396 (time zone: -0400)
+|_ssl-date: 2025-05-15T16:08:44+00:00; -2s from scanner time.
+|_imap-capabilities: LOGIN-REFERRALS SASL-IR IDLE ESEARCH MULTIAPPEND WITHIN UIDPLUS BINARY CAPABILITY UNSELECT LITERAL+ completed NAMESPACE THREAD=ORDEREDSUBJECT OK STARTTLSA0001 SCAN THREAD=REFERENCES SORT CHILDREN MAILBOX-REFERRALS IMAP4REV1
+445/tcp  open  netbios-ssn Samba smbd 3.0.26a-6.fc8 (workgroup: MYGROUP)
+901/tcp  open  http        Samba SWAT administration server
+| http-auth: 
+| HTTP/1.0 401 Authorization Required\x0D
+|_  Basic realm=SWAT
+|_http-title: 401 Authorization Required
+3306/tcp open  mysql       MySQL 5.0.45
+| mysql-info: 
+|   Protocol: 10
+|   Version: 5.0.45
+|   Thread ID: 2256
+|   Capabilities flags: 41516
+|   Some Capabilities: Support41Auth, SupportsCompression, Speaks41ProtocolNew, SupportsTransactions, ConnectWithDatabase, LongColumnFlag
+|   Status: Autocommit
+|_  Salt: 5@%6~:D*@G#vLWOf5sg)
+Device type: general purpose|broadband router|firewall|WAP|PBX|proxy server|media device
+Running (JUST GUESSING): Linux 2.6.X (98%), D-Link embedded (94%), Check Point GAiA OS (93%), Cisco embedded (93%), Ruckus embedded (93%), Riverbed embedded (91%), Sony embedded (91%)
+OS CPE: cpe:/o:linux:linux_kernel:2.6 cpe:/h:dlink:dsl-2540b cpe:/o:linux:linux_kernel:2.6.18 cpe:/o:checkpoint:gaia_os cpe:/h:cisco:sa520 cpe:/h:ruckus:7363 cpe:/h:cisco:uc320w cpe:/h:riverbed:steelhead_200
+Aggressive OS guesses: Linux 2.6.9 - 2.6.27 (98%), Linux 2.6.18 (96%), Linux 2.6.30 (95%), Linux 2.6.22 (95%), D-Link DSL-2540B ADSL router (94%), Linux 2.6.15 - 2.6.26 (likely embedded) (94%), Linux 2.6.28 (94%), Linux 2.6.9 (93%), Linux 2.6.32 - 2.6.35 (93%), Check Point GAiA (Linux 2.6.18) (93%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 14 hops
+Service Info: Hosts: localhost.localdomain, 10.66.16.100; OS: Unix
+
+Host script results:
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+|_smb2-time: Protocol negotiation failed (SMB2)
+|_clock-skew: mean: 59m57s, deviation: 2h00m00s, median: -2s
+| smb-os-discovery: 
+|   OS: Unix (Samba 3.0.26a-6.fc8)
+|   Computer name: localhost
+|   NetBIOS computer name: 
+|   Domain name: localdomain
+|   FQDN: localhost.localdomain
+|_  System time: 2025-05-15T12:07:16-04:00
+
+TRACEROUTE (using port 993/tcp)
+HOP RTT      ADDRESS
+1   8.20 ms  10.111.0.1
+2   16.24 ms 10.0.19.56
+3   13.90 ms 10.0.19.0
+4   15.00 ms 163.5.0.0
+5   15.93 ms 163.5.2.200
+6   12.34 ms 62.129.12.200
+7   ... 8
+9   12.61 ms 217.180.131.54
+10  ...
+11  13.68 ms 51.158.53.161
+12  13.67 ms 51.158.53.73
+13  15.01 ms 51.158.3.11
+14  12.63 ms ctf16.root-me.org (163.172.195.64)

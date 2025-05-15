@@ -1,0 +1,35 @@
+gobuster dir -u http://ctf16.root-me.org -w /home/fylga/Downloads/SecLists/Discovery/Web-Content/common.txt 
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://ctf16.root-me.org
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /home/fylga/Downloads/SecLists/Discovery/Web-Content/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/.hta                 (Status: 403) [Size: 288]
+/.htaccess            (Status: 403) [Size: 293]
+/.htpasswd            (Status: 403) [Size: 293]
+/cgi-bin/             (Status: 403) [Size: 292]
+/events               (Status: 301) [Size: 322] [--> http://ctf16.root-me.org/events/]
+/inc                  (Status: 301) [Size: 319] [--> http://ctf16.root-me.org/inc/]
+/index.php            (Status: 200) [Size: 1538]
+/info.php             (Status: 200) [Size: 50251]
+/list                 (Status: 301) [Size: 320] [--> http://ctf16.root-me.org/list/]
+/mail                 (Status: 301) [Size: 320] [--> http://ctf16.root-me.org/mail/]
+/phpmyadmin           (Status: 301) [Size: 326] [--> http://ctf16.root-me.org/phpmyadmin/]
+/squirrelmail         (Status: 301) [Size: 328] [--> http://ctf16.root-me.org/squirrelmail/]
+/stats                (Status: 301) [Size: 321] [--> http://ctf16.root-me.org/stats/]
+/usage                (Status: 403) [Size: 289]
+/~root                (Status: 403) [Size: 289]
+/~operator            (Status: 403) [Size: 293]
+Progress: 4746 / 4747 (99.98%)
+===============================================================
+Finished
+===============================================================

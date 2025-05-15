@@ -1,0 +1,175 @@
+./enum4linux-ng.py -As ctf16.root-me.org -oY out 
+ENUM4LINUX - next generation (v1.3.4)
+
+ ==========================
+|    Target Information    |
+ ==========================
+[*] Target ........... ctf16.root-me.org
+[*] Username ......... ''
+[*] Random Username .. 'pzsdumyd'
+[*] Password ......... ''
+[*] Timeout .......... 5 second(s)
+
+ ==========================================
+|    Listener Scan on ctf16.root-me.org    |
+ ==========================================
+[*] Checking LDAP
+[-] Could not connect to LDAP on 389/tcp: connection refused
+[*] Checking LDAPS
+[-] Could not connect to LDAPS on 636/tcp: connection refused
+[*] Checking SMB
+[+] SMB is accessible on 445/tcp
+[*] Checking SMB over NetBIOS
+[+] SMB over NetBIOS is accessible on 139/tcp
+
+ ==============================================
+|    SMB Dialect Check on ctf16.root-me.org    |
+ ==============================================
+[*] Trying on 445/tcp
+[+] Supported dialects and settings:
+Supported dialects:
+  SMB 1.0: true
+  SMB 2.02: false
+  SMB 2.1: false
+  SMB 3.0: false
+  SMB 3.1.1: false
+Preferred dialect: SMB 1.0
+SMB1 only: true
+SMB signing required: false
+[*] Enforcing legacy SMBv1 for further enumeration
+
+ ================================================================
+|    Domain Information via SMB session for ctf16.root-me.org    |
+ ================================================================
+[*] Enumerating via unauthenticated SMB session on 445/tcp
+[+] Found domain information via SMB
+NetBIOS computer name: LOCALHOST
+NetBIOS domain name: ''
+DNS domain: localdomain
+FQDN: localhost.localdomain
+Derived membership: workgroup member
+Derived domain: unknown
+
+ ==============================================
+|    RPC Session Check on ctf16.root-me.org    |
+ ==============================================
+[*] Check for null session
+[+] Server allows session using username '', password ''
+[*] Check for random user
+[-] Could not establish random user session: STATUS_LOGON_FAILURE
+
+ ========================================================
+|    Domain Information via RPC for ctf16.root-me.org    |
+ ========================================================
+[+] Domain: MYGROUP
+[H] Found domain/workgroup 'MYGROUP' which is different from the currently used one 'WORKGROUP'.
+[+] Domain SID: NULL SID
+[+] Membership: workgroup member
+
+ ====================================================
+|    OS Information via RPC for ctf16.root-me.org    |
+ ====================================================
+[*] Enumerating via unauthenticated SMB session on 445/tcp
+[+] Found OS information via SMB
+[*] Enumerating via 'srvinfo'
+[+] Found OS information via 'srvinfo'
+[+] After merging OS information we have the following result:
+OS: Linux/Unix (Samba 3.0.26a-6.fc8)
+OS version: '4.9'
+OS release: not supported
+OS build: not supported
+Native OS: Unix
+Native LAN manager: Samba 3.0.26a-6.fc8
+Platform id: '500'
+Server type: '0x809a03'
+Server type string: Wk Sv PrQ Unx NT SNT Samba Server Version 3.0.26a-6.fc8
+
+ ==========================================
+|    Users via RPC on ctf16.root-me.org    |
+ ==========================================
+[*] Enumerating users via 'querydispinfo'
+[+] Found 5 user(s) via 'querydispinfo'
+[*] Enumerating users via 'enumdomusers'
+[+] Found 5 user(s) via 'enumdomusers'
+[+] After merging user results we have 5 user(s) total:
+'2000':
+  username: patrick
+  name: Patrick Fair
+  acb: '0x00000010'
+  description: (null)
+'2002':
+  username: jennifer
+  name: Jennifer Sea
+  acb: '0x00000010'
+  description: (null)
+'2004':
+  username: andy
+  name: Andrew Carp
+  acb: '0x00000010'
+  description: (null)
+'2006':
+  username: loren
+  name: Loren Felt
+  acb: '0x00000010'
+  description: (null)
+'2008':
+  username: amy
+  name: Amy Pendelton
+  acb: '0x00000010'
+  description: (null)
+
+ ===========================================
+|    Groups via RPC on ctf16.root-me.org    |
+ ===========================================
+[*] Enumerating local groups
+[+] Found 0 group(s) via 'enumalsgroups domain'
+[*] Enumerating builtin groups
+[+] Found 0 group(s) via 'enumalsgroups builtin'
+[*] Enumerating domain groups
+[+] Found 0 group(s) via 'enumdomgroups'
+
+ ===========================================
+|    Shares via RPC on ctf16.root-me.org    |
+ ===========================================
+[*] Enumerating shares
+[+] Found 2 share(s):
+IPC$:
+  comment: IPC Service (Samba Server Version 3.0.26a-6.fc8)
+  type: IPC
+homes:
+  comment: Home Directories
+  type: Disk
+[*] Testing share IPC$
+[+] Mapping: OK, Listing: NOT SUPPORTED
+[*] Testing share homes
+[-] Share doesn't exist
+
+ ==============================================
+|    Policies via RPC for ctf16.root-me.org    |
+ ==============================================
+[*] Trying port 445/tcp
+[+] Found policy:
+Domain password information:
+  Password history length: None
+  Minimum password length: 5
+  Maximum password age: not set
+  Password properties:
+  - DOMAIN_PASSWORD_COMPLEX: false
+  - DOMAIN_PASSWORD_NO_ANON_CHANGE: false
+  - DOMAIN_PASSWORD_NO_CLEAR_CHANGE: false
+  - DOMAIN_PASSWORD_LOCKOUT_ADMINS: false
+  - DOMAIN_PASSWORD_PASSWORD_STORE_CLEARTEXT: false
+  - DOMAIN_PASSWORD_REFUSE_PASSWORD_CHANGE: false
+Domain lockout information:
+  Lockout observation window: 30 minutes
+  Lockout duration: 30 minutes
+  Lockout threshold: None
+Domain logoff information:
+  Force logoff time: not set
+
+ ==============================================
+|    Printers via RPC for ctf16.root-me.org    |
+ ==============================================
+[+] No printers returned (this is not an error)
+
+Completed after 3.28 seconds
